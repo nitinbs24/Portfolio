@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/* ─── Font Faces ─────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: "Clash Display";
+  src: url("/assets/fonts/ClashDisplay-Variable.woff2") format("woff2");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/assets/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/assets/fonts/JetBrainsMono-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Design Tokens (Tailwind v4 CSS-first) ──────────────────────────────── */
+
+@theme {
+  /* Colors */
+  --color-black: #000000;
+  --color-surface: #171717;
+  --color-surface-dark: #0a0a0a;
+  --color-accent: #00ff00;
+
+  /* Fonts */
+  --font-display: "Clash Display", "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  /* Terminal dot colors (not utility classes, used inline) */
+  --color-dot-red: #ff5f57;
+  --color-dot-yellow: #ffbd2e;
+  --color-dot-green: #27c93f;
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: auto; /* Lenis handles this */
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: var(--font-display);
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* ─── Selection ──────────────────────────────────────────────────────────── */
+
+::selection {
+  background-color: #00ff0033;
+  color: #ffffff;
+}
+
+/* ─── Custom Scrollbar ───────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}

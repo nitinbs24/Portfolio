@@ -38,8 +38,9 @@ export function Contact() {
           viewport={{ once: true, margin: "-100px" }}
           className="flex items-center justify-center gap-4 mb-4 w-full"
         >
+          <div className="w-16 md:w-32 h-[1px] bg-white/20"></div>
           <span className="font-mono text-neutral-500 text-sm tracking-wider">04.</span>
-          <div className="w-32 h-[1px] bg-white/20"></div>
+          <div className="w-16 md:w-32 h-[1px] bg-white/20"></div>
         </motion.div>
 
         {/* Heading */}
@@ -72,7 +73,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-24 w-full flex justify-start"
+          className="mb-24 w-full flex justify-center"
         >
           <motion.a
             whileHover={{ scale: 1.05 }}

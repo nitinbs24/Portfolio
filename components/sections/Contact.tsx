@@ -36,11 +36,10 @@ export function Contact() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="flex items-center gap-4 mb-8"
+          className="flex items-center gap-4 mb-4 w-full"
         >
-          <div className="w-8 h-[1px] bg-white/20"></div>
           <span className="font-mono text-neutral-500 text-sm tracking-wider">04.</span>
-          <div className="w-8 h-[1px] bg-white/20"></div>
+          <div className="w-32 h-[1px] bg-white/20"></div>
         </motion.div>
 
         {/* Heading */}
@@ -49,7 +48,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-6xl md:text-[7rem] font-bold tracking-tighter mb-8 text-center uppercase text-neutral-200"
+          className="text-6xl md:text-[7rem] font-bold tracking-tighter mb-8 w-full uppercase text-neutral-200"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Let's Connect
@@ -61,7 +60,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-neutral-400 text-center max-w-xl mx-auto mb-16 text-lg"
+          className="text-neutral-400 text-left w-full max-w-xl mb-16 text-lg"
         >
           Have a project in mind? Want to collaborate? Or just say hi? My inbox is always open.
         </motion.p>
@@ -72,12 +71,12 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-24"
+          className="mb-24 w-full flex justify-start"
         >
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="mailto:syedabdulmalik1208@gmail.com"
+            href="mailto:nitinskatte@gmail.com"
             className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-neutral-200 transition-colors"
           >
             Say Hello 

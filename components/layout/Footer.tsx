@@ -58,7 +58,7 @@ export function Footer() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-neutral-500 font-mono text-xs md:text-sm text-center max-w-xl px-4 leading-relaxed mb-8"
         >
-          Designed and developed by Abdul Malik with React, Three.js, Framer Motion, and all of my blood and sweat.
+          Designed and developed by Nitin B S with React, Three.js, Framer Motion, and all of my blood and sweat.
         </motion.p>
 
         {/* Icons */}

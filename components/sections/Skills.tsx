@@ -27,15 +27,26 @@ export function Skills() {
       id="skills"
     >
       <div className="w-full max-w-4xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="flex items-center gap-4 mb-4 w-full"
+        >
+          <span className="font-mono text-neutral-500 text-sm tracking-wider">03.</span>
+          <div className="w-32 h-[1px] bg-white/20"></div>
+        </motion.div>
+
         <motion.h2 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold mb-16 text-center" 
+          className="text-6xl md:text-[6rem] font-black tracking-tighter mb-16 uppercase w-full" 
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Skills & Tools
+          <span className="text-white">Technical </span>
+          <span className="text-neutral-500">Skills</span>
         </motion.h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">

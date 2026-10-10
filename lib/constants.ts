@@ -24,60 +24,47 @@ export interface SocialLink {
 // ─── Personal Info ────────────────────────────────────────────────────────────
 
 export const personalInfo = {
-  name: "Nitin",
+  name: "Nitin B S",
   roles: [
-    "Full Stack Developer",
-    "DevOps Engineer",
-    "AI Enthusiast",
-    "Open Source Contributor",
+    "Backend Engineer",
+    "Computer Science Student",
+    "System Architecture Enthusiast",
   ],
-  bio: `Software engineer focused on building fast, accessible,
-and well-crafted web applications. Passionate about
-developer tooling, infrastructure, and making complex
-systems simple.`,
+  bio: `Final Year Computer Science Engineering student From VVCE, Mysuru, with interest in backend engineering — distributed pipelines, APIs, and production ready deployments.`,
 } as const;
 
 // ─── Projects ─────────────────────────────────────────────────────────────────
 
 export const projects: Project[] = [
   {
-    id: "homelab",
-    title: "Homelab Infrastructure",
+    id: "hpe-cpp",
+    title: "Search Engine for Object Storage System",
     description:
-      "Self-hosted Kubernetes cluster running 20+ services with GitOps-driven deployments via ArgoCD and Terraform.",
-    tags: ["Kubernetes", "Terraform", "ArgoCD", "Prometheus"],
+      "Production-grade RAG pipeline over MinIO object storage, combining dense vector (kNN) and BM25 keyword retrieval via OpenSearch, with Redis caching and Kafka-driven event ingestion — deployed on Docker and Kubernetes.",
+    tags: ["Kubernetes", "Kafka", "OpenSearch", "Redis", "NLP"],
     href: "#",
     repo: "https://github.com/nitin",
     featured: true,
   },
   {
-    id: "devboard",
-    title: "DevBoard",
+    id: "3d-warehouse",
+    title: "3D Warehouse Slotting Engine",
     description:
-      "Real-time developer dashboard aggregating GitHub, CI/CD pipelines, and incident alerts in one view.",
-    tags: ["Next.js", "TypeScript", "WebSockets", "PostgreSQL"],
-    href: "#",
-    repo: "https://github.com/nitin",
-  },
-  {
-    id: "ai-cli",
-    title: "AI CLI Toolkit",
-    description:
-      "Terminal utility that wraps Gemini API for code review, commit message generation, and PR summaries.",
-    tags: ["Python", "Gemini API", "Click", "Rich"],
+      "Full-stack slotting engine (FastAPI + async Postgres + Redis/arq) that turns Odoo-shaped inventory data into optimized rack-slot assignments with a React Three Fiber 3D digital twin.",
+    tags: ["FastAPI", "PostgreSQL", "Redis", "React Three Fiber"],
     href: "#",
     repo: "https://github.com/nitin",
     featured: true,
   },
   {
-    id: "dns-guard",
-    title: "DNS Guard",
+    id: "ai-shorts",
+    title: "AI YouTube Automation",
     description:
-      "Lightweight Pi-hole alternative written in Go with a web UI, custom blocklists, and per-device rules.",
-    tags: ["Go", "SQLite", "Docker", "React"],
+      "Autonomous Python monorepo that orchestrates scriptwriting, voiceovers, and video assembly to publish content across a YouTube channel using LLM-in-the-loop validation.",
+    tags: ["Python", "Edge-TTS", "MoviePy", "GitHub Actions"],
     href: "#",
     repo: "https://github.com/nitin",
-  },
+  }
 ];
 
 // ─── Skills ───────────────────────────────────────────────────────────────────
@@ -85,20 +72,16 @@ export const projects: Project[] = [
 export const skills: SkillCategory[] = [
   {
     label: "Languages",
-    items: ["TypeScript", "Python", "Go", "Rust", "SQL", "Bash"],
+    items: ["C", "C++", "Python"],
   },
   {
-    label: "Frameworks",
-    items: ["Next.js", "React", "FastAPI", "Express", "Prisma", "Tailwind CSS"],
+    label: "Developer Tools",
+    items: ["Git", "VS Code", "Docker", "Kubernetes", "Claude Code", "Antigravity"],
   },
   {
-    label: "DevOps",
-    items: ["Docker", "Kubernetes", "Terraform", "ArgoCD", "GitHub Actions", "Prometheus"],
-  },
-  {
-    label: "Distros & Tools",
-    items: ["NixOS", "Arch Linux", "Neovim", "tmux", "PostgreSQL", "Redis"],
-  },
+    label: "Core Concepts",
+    items: ["Data Structures", "Algorithms", "Computer Networks", "Operating Systems", "DBMS"],
+  }
 ];
 
 // ─── Social Links ─────────────────────────────────────────────────────────────
@@ -106,17 +89,17 @@ export const skills: SkillCategory[] = [
 export const socialLinks: SocialLink[] = [
   {
     label: "Email",
-    href: "mailto:syedabdulmalik1208@gmail.com",
+    href: "mailto:nitinskatte@gmail.com",
     icon: "email",
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/abdulmaliksy3d",
+    href: "https://linkedin.com/in/nitinbs",
     icon: "linkedin",
   },
   {
     label: "GitHub",
-    href: "https://github.com/s8my0",
+    href: "https://github.com/nitinbs",
     icon: "github",
   },
 ];

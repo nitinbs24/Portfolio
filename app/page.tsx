@@ -24,7 +24,7 @@ export default function Page() {
   }, []);
 
   return (
-    <main className="relative min-h-screen bg-black text-white selection:bg-accent/30 selection:text-white">
+    <main className="relative min-h-screen bg-black text-white selection:bg-accent/30 selection:text-white overflow-x-hidden">
       {/* 3D Background */}
       <div className="fixed inset-0 z-0 pointer-events-none opacity-40">
         {mounted && !isTouchDevice && <ParticleBackground />}

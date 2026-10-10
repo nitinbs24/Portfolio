@@ -48,10 +48,11 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-6xl md:text-[7rem] font-bold tracking-tighter mb-8 w-full uppercase text-neutral-200"
+          className="text-6xl md:text-[7rem] font-bold tracking-tighter mb-8 w-full uppercase"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Let's Connect
+          <span className="text-white">Let's </span>
+          <span className="text-neutral-500">Connect</span>
         </motion.h2>
 
         {/* Subtitle */}

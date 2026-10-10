@@ -71,8 +71,8 @@ export function Projects() {
           className="text-6xl md:text-[6rem] font-black tracking-tighter mb-16 uppercase w-full" 
           style={{ fontFamily: "var(--font-display)" }}
         >
-          <span className="text-white">Selected </span>
-          <span className="text-neutral-500">Works</span>
+          <span className="text-white">Featured </span>
+          <span className="text-neutral-500">Projects</span>
         </motion.h2>
         
         <motion.div 
@@ -105,14 +105,14 @@ function ProjectCard({ project }: { project: Project }) {
     <motion.div
       variants={itemVariants}
       className={cn(
-        "group relative flex flex-col bg-white/5 border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:border-accent/50",
+        "group relative flex flex-col bg-[#111] border border-white/5 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white/10",
         project.featured ? "md:col-span-2" : "col-span-1"
       )}
     >
       <div className="p-6 md:p-8 flex-1 flex flex-col">
         <div className="flex justify-between items-start mb-4">
           <h3 
-            className="text-2xl font-bold text-white group-hover:text-accent transition-colors"
+            className="text-2xl font-bold text-white transition-colors"
             style={{ fontFamily: "var(--font-display)" }}
           >
             {project.title}

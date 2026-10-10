@@ -175,6 +175,32 @@ export function Navbar() {
                 </a>
               );
             })}
+            
+            {/* Download Resume Button for Mobile */}
+            <a
+              href="/docs/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-4 text-sm font-medium transition-colors text-neutral-400 hover:text-white hover:bg-white/5 flex items-center justify-between group"
+            >
+              Resume
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="14" 
+                height="14" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+                className="opacity-50 group-hover:opacity-100 transition-opacity"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+            </a>
           </motion.div>
         )}
       </AnimatePresence>

@@ -28,24 +28,24 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col md:block items-center text-5xl md:text-8xl font-bold tracking-tighter text-neutral-600 uppercase select-none text-center"
+          className="flex flex-col md:block items-center md:text-8xl font-bold tracking-tighter text-neutral-600 uppercase select-none text-center"
           style={{ fontFamily: "var(--font-display)" }}
         >
           {/* Mobile: Design Code */}
-          <span className="relative inline-block md:hidden mb-2">
+          <span className="relative inline-block md:hidden mb-2 whitespace-nowrap text-[12vw] sm:text-[10vw]">
             Design Code
-            <span className="absolute top-1/2 left-[-5%] right-[-5%] h-[2px] bg-neutral-500 -translate-y-1/2"></span>
+            <span className="absolute top-1/2 left-[-2%] right-[-2%] h-[2px] bg-neutral-500 -translate-y-1/2"></span>
           </span>
           {/* Mobile: Deploy */}
-          <span className="relative inline-block md:hidden">
+          <span className="relative inline-block md:hidden whitespace-nowrap text-[12vw] sm:text-[10vw]">
             Deploy
-            <span className="absolute top-1/2 left-[-5%] right-[-5%] h-[2px] bg-neutral-500 -translate-y-1/2"></span>
+            <span className="absolute top-1/2 left-[-2%] right-[-2%] h-[2px] bg-neutral-500 -translate-y-1/2"></span>
           </span>
           
           {/* Desktop: Design Code Deploy */}
-          <span className="relative hidden md:inline-block">
+          <span className="relative hidden md:inline-block whitespace-nowrap">
             Design Code Deploy
-            <span className="absolute top-1/2 left-[-5%] right-[-5%] h-[4px] bg-neutral-500 -translate-y-1/2"></span>
+            <span className="absolute top-1/2 left-[-2%] right-[-2%] h-[4px] bg-neutral-500 -translate-y-1/2"></span>
           </span>
         </motion.div>
 

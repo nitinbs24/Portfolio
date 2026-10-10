@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
@@ -146,13 +147,17 @@ export function Navbar() {
             </button>
           </div>
         </nav>
-      </header>
-
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center pt-20 md:hidden">
-          <div className="flex flex-col items-center gap-6 w-full px-6">
-            {NAV_LINKS.map((link) => {
+      {/* Mobile Menu Dropdown */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-full mt-4 left-1/2 -translate-x-1/2 w-48 bg-[#151515] border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex flex-col md:hidden z-40"
+          >
+            {[...NAV_LINKS, { label: "Contact", href: "#contact" }].map((link) => {
               const isActive = activeSection === link.href;
               return (
                 <a
@@ -160,43 +165,21 @@ export function Navbar() {
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={cn(
-                    "text-2xl font-bold tracking-wider",
-                    isActive ? "text-white" : "text-neutral-500"
+                    "px-6 py-4 text-sm font-medium transition-colors border-b border-white/5 last:border-b-0",
+                    isActive 
+                      ? "text-white bg-white/5" 
+                      : "text-neutral-400 hover:text-white hover:bg-white/5"
                   )}
-                  style={{ fontFamily: "var(--font-display)" }}
                 >
                   {link.label}
                 </a>
               );
             })}
-            
-            <div className="w-12 h-[1px] bg-white/20 my-4"></div>
-            
-            <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, "#contact")}
-              className="text-2xl font-bold tracking-wider text-neutral-500"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Connect
-            </a>
-            
-            <a
-              href="/docs/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 px-8 py-3 rounded-full bg-[#222] border border-white/10 text-white font-medium flex items-center gap-2"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
-              Download Resume
-            </a>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
+      </header>
     </>
   );
 }
+

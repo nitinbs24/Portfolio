@@ -71,16 +71,20 @@ export const projects: Project[] = [
 
 export const skills: SkillCategory[] = [
   {
-    label: "Languages",
-    items: ["C", "C++", "Python"],
+    label: "LANGUAGES",
+    items: ["C++", "C", "Python", "TypeScript", "JavaScript", "Go"],
   },
   {
-    label: "Developer Tools",
-    items: ["Git", "VS Code", "Docker", "Kubernetes", "Claude Code", "Antigravity"],
+    label: "FRAMEWORKS",
+    items: ["LangChain", "FastAPI", "React Three Fiber", "Streamlit", "gRPC"],
   },
   {
-    label: "Core Concepts",
-    items: ["Data Structures", "Algorithms", "Computer Networks", "Operating Systems", "DBMS"],
+    label: "DATABASES & SEARCH",
+    items: ["PostgreSQL", "Redis", "OpenSearch", "MinIO"],
+  },
+  {
+    label: "DEVOPS & TOOLS",
+    items: ["Docker", "Kubernetes", "Kafka", "Git", "GitHub Actions", "Linux"],
   }
 ];
 

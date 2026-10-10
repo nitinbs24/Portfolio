@@ -1,4 +1,5 @@
 import { socialLinks } from "@/lib/constants";
+import { motion } from "framer-motion";
 
 export function Footer() {
   return (
@@ -8,15 +9,17 @@ export function Footer() {
       </h2>
       <div className="flex gap-6">
         {socialLinks.map((link) => (
-          <a
+          <motion.a
             key={link.label}
             href={link.href}
             target={link.icon !== "email" ? "_blank" : undefined}
             rel={link.icon !== "email" ? "noopener noreferrer" : undefined}
             className="text-neutral-400 hover:text-white transition-colors font-mono text-sm"
+            whileHover={{ scale: 1.1, y: -2 }}
+            whileTap={{ scale: 0.95 }}
           >
             {link.label}
-          </a>
+          </motion.a>
         ))}
       </div>
     </footer>

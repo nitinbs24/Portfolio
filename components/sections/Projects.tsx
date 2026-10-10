@@ -1,5 +1,7 @@
 import { projects, Project } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+
 const Github = ({ size = 24 }: { size?: number }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -35,32 +37,62 @@ const ExternalLink = ({ size = 24 }: { size?: number }) => (
 );
 
 export function Projects() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
   return (
     <section
       className="min-h-screen py-24 px-4 md:px-8 relative z-10"
       id="projects"
     >
       <div className="w-full max-w-6xl mx-auto">
-        <h2 
+        <motion.h2 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-bold mb-12 text-center" 
           style={{ fontFamily: "var(--font-display)" }}
         >
           Selected Works
-        </h2>
+        </motion.h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 }
 
 function ProjectCard({ project }: { project: Project }) {
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
-    <div
+    <motion.div
+      variants={itemVariants}
       className={cn(
         "group relative flex flex-col bg-white/5 border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:border-accent/50",
         project.featured ? "md:col-span-2" : "col-span-1"
@@ -115,6 +147,6 @@ function ProjectCard({ project }: { project: Project }) {
           ))}
         </ul>
       </div>
-    </div>
+    </motion.div>
   );
 }

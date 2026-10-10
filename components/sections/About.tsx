@@ -1,5 +1,6 @@
 import { personalInfo } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 export function About() {
   return (
@@ -8,7 +9,13 @@ export function About() {
       id="about"
     >
       <div className="w-full max-w-4xl mx-auto">
-        <div className="bg-[#1a1b26]/80 backdrop-blur-md rounded-xl border border-white/10 shadow-2xl overflow-hidden font-mono text-sm md:text-base">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="bg-[#1a1b26]/80 backdrop-blur-md rounded-xl border border-white/10 shadow-2xl overflow-hidden font-mono text-sm md:text-base"
+        >
           {/* macOS Window Header */}
           <div className="flex items-center px-4 py-3 bg-[#16161e] border-b border-white/10">
             <div className="flex space-x-2">
@@ -42,7 +49,7 @@ export function About() {
               <span className="w-2.5 h-5 bg-neutral-400 animate-pulse inline-block"></span>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

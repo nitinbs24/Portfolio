@@ -9,7 +9,6 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
       lerp: 0.1,
       smoothWheel: true,
       syncTouch: false,
-      smoothTouch: false, // Per architecture docs
     });
 
     function raf(time: number) {

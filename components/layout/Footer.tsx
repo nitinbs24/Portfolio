@@ -28,7 +28,7 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="relative text-5xl md:text-8xl font-bold tracking-tighter text-neutral-600 uppercase select-none"
+          className="relative text-[clamp(1.75rem,8vw,6rem)] font-bold tracking-tighter text-neutral-600 uppercase select-none whitespace-nowrap"
           style={{ fontFamily: "var(--font-display)" }}
         >
           <span className="relative inline-block">

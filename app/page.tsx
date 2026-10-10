@@ -3,6 +3,10 @@
 import dynamic from "next/dynamic";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
+import { Projects } from "@/components/sections/Projects";
+import { Skills } from "@/components/sections/Skills";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useState, useEffect } from "react";
 
@@ -31,41 +35,16 @@ export default function Page() {
         <Navbar />
 
         {/* Phase 5A: Hero */}
-        <section className="min-h-screen flex items-center justify-center border-b border-white/10" id="hero">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-7xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>HERO SLOT</h1>
-            <p className="font-mono text-neutral-400">Terminal Typewriter</p>
-          </div>
-        </section>
+        <Hero />
 
         {/* Phase 5B: About */}
-        <section className="min-h-screen flex items-center justify-center border-b border-white/10" id="about">
-          <div className="w-full max-w-4xl mx-auto p-8 border border-white/10 rounded-xl bg-black/50 backdrop-blur-sm">
-            <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>ABOUT SLOT</h2>
-            <p className="font-mono text-neutral-400">macOS Window / CLI Text</p>
-          </div>
-        </section>
+        <About />
 
         {/* Phase 5C: Projects */}
-        <section className="min-h-screen flex flex-col items-center justify-center border-b border-white/10 p-8" id="projects">
-          <h2 className="text-4xl font-bold mb-12" style={{ fontFamily: "var(--font-display)" }}>PROJECTS SLOT</h2>
-          <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="aspect-[4/3] border border-white/10 rounded-xl bg-white/5 flex items-center justify-center font-mono text-neutral-500">Project Card</div>
-            <div className="aspect-[4/3] border border-white/10 rounded-xl bg-white/5 flex items-center justify-center font-mono text-neutral-500">Project Card</div>
-            <div className="aspect-[4/3] border border-white/10 rounded-xl bg-white/5 flex items-center justify-center font-mono text-neutral-500">Project Card</div>
-          </div>
-        </section>
+        <Projects />
 
         {/* Phase 5D: Skills */}
-        <section className="min-h-screen flex flex-col items-center justify-center border-b border-white/10 p-8" id="skills">
-          <h2 className="text-4xl font-bold mb-12" style={{ fontFamily: "var(--font-display)" }}>SKILLS SLOT</h2>
-          <div className="w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="p-6 border border-white/10 rounded-xl bg-white/5 flex items-center justify-center font-mono text-neutral-500">Skill Badge</div>
-            <div className="p-6 border border-white/10 rounded-xl bg-white/5 flex items-center justify-center font-mono text-neutral-500">Skill Badge</div>
-            <div className="p-6 border border-white/10 rounded-xl bg-white/5 flex items-center justify-center font-mono text-neutral-500">Skill Badge</div>
-            <div className="p-6 border border-white/10 rounded-xl bg-white/5 flex items-center justify-center font-mono text-neutral-500">Skill Badge</div>
-          </div>
-        </section>
+        <Skills />
 
         {/* Phase 3: Footer */}
         <Footer />

@@ -105,18 +105,18 @@ export const skills: SkillCategory[] = [
 
 export const socialLinks: SocialLink[] = [
   {
-    label: "GitHub",
-    href: "https://github.com/nitin",
-    icon: "github",
+    label: "Email",
+    href: "mailto:syedabdulmalik1208@gmail.com",
+    icon: "email",
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/nitin",
+    href: "https://linkedin.com/in/abdulmaliksy3d",
     icon: "linkedin",
   },
   {
-    label: "Email",
-    href: "mailto:nitin@example.com",
-    icon: "email",
+    label: "GitHub",
+    href: "https://github.com/s8my0",
+    icon: "github",
   },
 ];

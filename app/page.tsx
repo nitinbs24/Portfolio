@@ -1,3 +1,6 @@
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+
 export default function Page() {
   return (
     <main className="relative min-h-screen bg-black text-white selection:bg-accent/30 selection:text-white">
@@ -9,9 +12,7 @@ export default function Page() {
       {/* Content wrapper */}
       <div className="relative z-10">
         {/* Phase 3: Navbar */}
-        <header className="fixed top-0 left-0 right-0 h-20 border-b border-white/10 flex items-center justify-center backdrop-blur-md z-50">
-          <span className="font-mono text-neutral-500 text-sm">Navbar Slot</span>
-        </header>
+        <Navbar />
 
         {/* Phase 5A: Hero */}
         <section className="min-h-screen flex items-center justify-center border-b border-white/10" id="hero">
@@ -51,10 +52,7 @@ export default function Page() {
         </section>
 
         {/* Phase 3: Footer */}
-        <footer className="h-64 flex flex-col items-center justify-center p-8 bg-black">
-          <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-display)" }}>FOOTER SLOT</h2>
-          <p className="font-mono text-neutral-500 text-sm">Contact Links</p>
-        </footer>
+        <Footer />
       </div>
     </main>
   );

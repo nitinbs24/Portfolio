@@ -12,8 +12,16 @@
 
 @font-face {
   font-family: "Monument Extended";
-  src: url("/assets/fonts/monumentextended-ultrabold.otf") format("opentype");
+  src: url("/assets/fonts/monumentextended-regular.otf") format("opentype");
   font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clash Display";
+  src: url("/assets/fonts/ClashDisplay-Variable.woff2") format("woff2");
+  font-weight: 200 700;
   font-style: normal;
   font-display: swap;
 }
@@ -44,7 +52,8 @@
   --color-accent: #00ff00;
 
   /* Fonts */
-  --font-display: "Monument Extended", "Clash Display", sans-serif;
+  --font-display: "Monument Extended", sans-serif;
+  --font-sans: "Clash Display", "Space Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
 
   /* Terminal dot colors (not utility classes, used inline) */
@@ -70,7 +79,7 @@ html {
 body {
   background-color: #000000;
   color: #ffffff;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   min-height: 100dvh;
   overflow-x: hidden;
 }

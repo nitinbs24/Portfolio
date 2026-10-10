@@ -68,7 +68,7 @@ export function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-6xl md:text-[6rem] font-black tracking-tighter mb-16 uppercase w-full" 
+          className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter mb-16 uppercase w-full" 
           style={{ fontFamily: "var(--font-display)" }}
         >
           <span className="text-white">Featured </span>
@@ -105,8 +105,7 @@ function ProjectCard({ project }: { project: Project }) {
     <motion.div
       variants={itemVariants}
       className={cn(
-        "group relative flex flex-col bg-[#111] border border-white/5 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white/10",
-        project.featured ? "md:col-span-2" : "col-span-1"
+        "group relative flex flex-col h-full bg-[#111] border border-white/5 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white/10"
       )}
     >
       <div className="p-6 md:p-8 flex-1 flex flex-col">

@@ -36,7 +36,7 @@ export function Contact() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="flex items-center gap-4 mb-4 w-full"
+          className="flex items-center justify-center gap-4 mb-4 w-full"
         >
           <span className="font-mono text-neutral-500 text-sm tracking-wider">04.</span>
           <div className="w-32 h-[1px] bg-white/20"></div>
@@ -48,7 +48,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-6xl md:text-[7rem] font-bold tracking-tighter mb-8 w-full uppercase"
+          className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-8 w-full uppercase text-center"
           style={{ fontFamily: "var(--font-display)" }}
         >
           <span className="text-white">Let's </span>
@@ -61,7 +61,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-neutral-400 text-left w-full max-w-xl mb-16 text-lg"
+          className="text-neutral-400 text-center w-full max-w-xl mb-16 text-lg"
         >
           Have a project in mind? Want to collaborate? Or just say hi? My inbox is always open.
         </motion.p>

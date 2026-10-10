@@ -23,10 +23,10 @@ export function Skills() {
 
   return (
     <section
-      className="min-h-screen py-24 px-4 md:px-8 flex flex-col items-center justify-center relative z-10"
+      className="min-h-screen py-24 px-4 md:px-8 relative z-10"
       id="skills"
     >
-      <div className="w-full max-w-4xl mx-auto">
+      <div className="w-full max-w-6xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -42,14 +42,14 @@ export function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-6xl md:text-[6rem] font-black tracking-tighter mb-16 uppercase w-full" 
+          className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter mb-16 w-full" 
           style={{ fontFamily: "var(--font-display)" }}
         >
-          <span className="text-white">Technical </span>
-          <span className="text-neutral-500">Skills</span>
+          <span className="text-white">Skills </span>
+          <span className="text-neutral-500">& Tools</span>
         </motion.h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
           {skills.map((category, idx) => (
             <motion.div 
               key={category.label} 
@@ -57,9 +57,9 @@ export function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="space-y-4"
+              className="bg-[#111] border border-white/5 rounded-2xl p-8 flex flex-col hover:border-white/10 transition-colors"
             >
-              <h3 className="text-xl font-bold text-accent font-mono border-b border-white/10 pb-2">
+              <h3 className="text-xs font-mono tracking-widest text-neutral-500 uppercase mb-6">
                 {category.label}
               </h3>
               <motion.ul 
@@ -73,7 +73,7 @@ export function Skills() {
                   <motion.li
                     key={item}
                     variants={itemVariants}
-                    className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm md:text-base text-neutral-300 font-medium hover:bg-white/10 hover:border-white/20 transition-all cursor-default"
+                    className="px-5 py-2 bg-transparent border border-white/10 rounded-full text-sm text-neutral-400 font-medium hover:bg-white/5 hover:text-neutral-300 transition-colors cursor-default"
                   >
                     {item}
                   </motion.li>

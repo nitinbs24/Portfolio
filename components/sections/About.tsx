@@ -25,7 +25,7 @@ export function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-6xl md:text-[6rem] font-black tracking-tighter mb-16 uppercase w-full"
+          className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter mb-16 uppercase w-full"
           style={{ fontFamily: "var(--font-display)" }}
         >
           <span className="text-white">About </span>
@@ -94,7 +94,7 @@ export function About() {
                   <li className="flex items-start gap-2"><span className="text-neutral-500">-</span> System Architecture</li>
                   <li className="flex items-start gap-2"><span className="text-neutral-500">-</span> API Design</li>
                   <li className="flex items-start gap-2"><span className="text-neutral-500">-</span> Production Deployments</li>
-                  <li className="flex items-start gap-2"><span className="text-neutral-500">-</span> Open Source</li>
+                  <li className="flex items-start gap-2"><span className="text-neutral-500">-</span> Open Source Contributor</li>
                 </ul>
 
                 <div>

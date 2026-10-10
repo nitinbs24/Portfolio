@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LenisProvider } from "@/components/LenisProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,7 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="bg-black text-white antialiased font-sans">
+        <LenisProvider>{children}</LenisProvider>
+      </body>
     </html>
   );
 }

@@ -49,7 +49,10 @@ export function Hero() {
           className="text-6xl md:text-9xl font-bold tracking-tight mb-6"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          {personalInfo.name}
+          {personalInfo.name.split(" ")[0]}{" "}
+          <span className="whitespace-nowrap">
+            {personalInfo.name.split(" ").slice(1).join(" ")}
+          </span>
         </motion.h1>
         
         <motion.div

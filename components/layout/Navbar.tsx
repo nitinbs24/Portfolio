@@ -10,16 +10,7 @@ const NAV_LINKS = [
 ];
 
 export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -50,74 +41,69 @@ export function Navbar() {
   };
 
   return (
-    <header
-      className={cn(
-        "fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300",
-        isScrolled ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
-      )}
-    >
-      <nav className="flex items-center gap-4 md:gap-6 px-4 md:px-6 py-2 md:py-3 rounded-full border border-white/10 bg-[#16161e]/80 backdrop-blur-md shadow-lg">
+    <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+      <nav className="flex items-center gap-2 p-1.5 md:p-2 rounded-full border border-white/10 bg-[#151515] shadow-2xl">
+        
+        {/* Logo */}
+        <a 
+          href="#top" 
+          onClick={(e) => handleNavClick(e, "body")} 
+          className="flex items-center justify-center pl-3 pr-2"
+          aria-label="Home"
+        >
+          <svg width="24" height="24" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="scale-90">
+            <path d="M12 28L20 12L28 28" stroke="url(#paint0_linear)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M20 12L28 28L36 12" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <defs>
+              <linearGradient id="paint0_linear" x1="12" y1="28" x2="20" y2="12" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#6366f1" />
+                <stop offset="1" stopColor="#a855f7" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </a>
+
         {/* Navigation Links */}
-        <div className="flex items-center gap-4 md:gap-6">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className={cn(
-                "text-xs md:text-sm font-mono transition-colors",
-                activeSection === link.href ? "text-white" : "text-neutral-500 hover:text-white"
-              )}
-            >
-              {link.label}
-            </a>
-          ))}
+        <div className="flex items-center">
+          {NAV_LINKS.map((link) => {
+            const isActive = activeSection === link.href;
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className={cn(
+                  "text-sm font-medium px-4 py-2 md:px-5 md:py-2.5 rounded-full transition-all duration-300",
+                  isActive 
+                    ? "bg-[#2a2a2a] text-white shadow-sm border border-white/10" 
+                    : "text-neutral-400 hover:text-white border border-transparent"
+                )}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </div>
 
         {/* Divider */}
-        <div className="w-[1px] h-4 bg-white/20 mx-1 md:mx-2"></div>
+        <div className="w-[1px] h-4 bg-white/10 mx-2"></div>
 
-        {/* Action Buttons */}
-        <div className="flex items-center gap-3 md:gap-4">
+        {/* Connect Button */}
+        <div className="pr-1">
           <a
             href="#contact"
             onClick={(e) => handleNavClick(e, "#contact")}
             className={cn(
-              "text-xs md:text-sm font-mono px-3 py-1.5 md:px-4 md:py-2 rounded-full border transition-colors",
+              "text-sm font-medium px-4 py-2 md:px-5 md:py-2.5 rounded-full transition-all duration-300 border",
               activeSection === "#contact"
-                ? "bg-white text-black border-white"
-                : "border-white/20 text-neutral-300 hover:border-white hover:text-white"
+                ? "bg-[#333] text-white border-white/20 shadow-sm"
+                : "bg-[#222] border-white/5 text-neutral-300 hover:bg-[#2a2a2a] hover:text-white"
             )}
           >
             Connect
           </a>
-          
-          <span className="text-white/20 font-mono text-sm hidden md:inline">|</span>
-
-          <a
-            href="/docs/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs md:text-sm font-mono text-neutral-400 hover:text-white transition-colors flex items-center gap-1.5"
-          >
-            Resume
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-          </a>
         </div>
+
       </nav>
     </header>
   );

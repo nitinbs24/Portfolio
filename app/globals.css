@@ -3,9 +3,17 @@
 /* ─── Font Faces ─────────────────────────────────────────────────────────── */
 
 @font-face {
-  font-family: "Clash Display";
-  src: url("/assets/fonts/ClashDisplay-Variable.woff2") format("woff2");
-  font-weight: 200 700;
+  font-family: "Monument Extended";
+  src: url("/assets/fonts/MonumentExtended-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Monument Extended";
+  src: url("/assets/fonts/MonumentExtended-Ultrabold.woff2") format("woff2");
+  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
@@ -36,7 +44,7 @@
   --color-accent: #00ff00;
 
   /* Fonts */
-  --font-display: "Clash Display", "Space Grotesk", sans-serif;
+  --font-display: "Monument Extended", "Clash Display", sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
 
   /* Terminal dot colors (not utility classes, used inline) */

@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { Navbar } from "@/components/layout/Navbar";
+import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
@@ -45,6 +46,9 @@ export default function Page() {
 
         {/* Phase 5D: Skills */}
         <Skills />
+
+        {/* Phase 6: Contact */}
+        <Contact />
 
         {/* Phase 3: Footer */}
         <Footer />

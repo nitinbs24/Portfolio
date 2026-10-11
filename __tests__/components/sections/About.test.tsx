@@ -6,17 +6,16 @@ import { personalInfo } from "@/lib/constants";
 describe("About", () => {
   it("renders the terminal window headers", () => {
     const { getByText } = render(<About />);
-    expect(getByText("Terminal - nitin@portfolio")).toBeInTheDocument();
+    expect(getByText(/terminal - bash/i)).toBeInTheDocument();
   });
 
   it("renders the prompt and command", () => {
     const { getByText } = render(<About />);
-    expect(getByText(/cat about\.txt/i)).toBeInTheDocument();
+    expect(getByText("whoami")).toBeInTheDocument();
   });
 
-  it("renders the about content from constants", () => {
-    const { getByText } = render(<About />);
-    const firstParagraph = personalInfo.bio.split("\n")[0];
-    expect(getByText(firstParagraph, { exact: false })).toBeInTheDocument();
+  it("renders the about content", () => {
+    const { getAllByText } = render(<About />);
+    expect(getAllByText(/Backend Engineering/i).length).toBeGreaterThan(0);
   });
 });

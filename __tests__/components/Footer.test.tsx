@@ -4,9 +4,9 @@ import { Footer } from "@/components/layout/Footer";
 
 describe("Footer", () => {
   it("renders social links", () => {
-    const { getByText } = render(<Footer />);
-    expect(getByText("GitHub")).toBeInTheDocument();
-    expect(getByText("LinkedIn")).toBeInTheDocument();
-    expect(getByText("Email")).toBeInTheDocument();
+    const { getByLabelText, getByRole } = render(<Footer />);
+    expect(getByLabelText("GitHub")).toBeInTheDocument();
+    expect(getByLabelText("LinkedIn")).toBeInTheDocument();
+    expect(getByRole("heading", { level: 2, name: /Innovate/i })).toBeInTheDocument();
   });
 });

@@ -5,8 +5,8 @@ import { projects } from "@/lib/constants";
 
 describe("Projects", () => {
   it("renders the section title", () => {
-    const { getByText } = render(<Projects />);
-    expect(getByText("Selected Works")).toBeInTheDocument();
+    const { getByRole } = render(<Projects />);
+    expect(getByRole("heading", { level: 2, name: /Featured Projects/i })).toBeInTheDocument();
   });
 
   it("renders all projects from constants", () => {

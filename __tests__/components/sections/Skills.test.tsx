@@ -5,8 +5,8 @@ import { skills } from "@/lib/constants";
 
 describe("Skills", () => {
   it("renders the section title", () => {
-    const { getByText } = render(<Skills />);
-    expect(getByText("Skills & Tools")).toBeInTheDocument();
+    const { getByRole } = render(<Skills />);
+    expect(getByRole("heading", { level: 2, name: /Skills.*& Tools/i })).toBeInTheDocument();
   });
 
   it("renders all skill categories", () => {

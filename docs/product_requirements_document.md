@@ -17,48 +17,51 @@ The site must immediately communicate technical competence through its aesthetic
 The application will consist of a single-page layout (SPA) divided into the following sections:
 
 **2.1 Hero Section**
-* **3D Background:** Interactive particle field rendering behind the content.
-* **Content:** Prominent name display using an extended display font.
-* **Interaction:** Typewriter effect cycling through professional roles (e.g., `> Full Stack Developer |`, `> AI Enthusiast |`).
-* **Navigation:** Sticky floating pill-shaped navbar that appears upon scrolling past the hero section.
+* **3D Background:** Interactive particle field rendering behind content via React Three Fiber & Drei (`ParticleBackground.tsx`) with cursor mouse-tracking.
+* **Content:** Prominent name display using Monument Extended with smart line-wrap protection keeping initials ("B S") intact on mobile.
+* **Interaction:** Typewriter effect cycling through backend engineering roles.
+* **Navigation:** Sticky floating pill-shaped navbar with active intersection observers; on mobile, toggles an animated Framer Motion popover dropdown with outside-click dismissal and direct resume download.
 
 **2.2 "About Me" (Terminal Interface)**
-* **Component:** A mock macOS terminal window.
-* **Content:** Command-line style prompt (`$ whoami`) followed by a brief bio written in a monospaced font.
-* **Interaction:** Text can load sequentially as if being typed out when scrolled into view.
+* **Component:** A mock macOS terminal window with window controls and bash header.
+* **Content:** Command-line prompt (`$ whoami`), personal details, and curated engineering focus areas (Distributed Pipelines, System Architecture, Production Deployments, Open Source).
+* **Interaction:** Monospace status indicator with pulsing CLI cursor.
 
 **2.3 Featured Projects (Bento Grid)**
-* **Layout:** Asymmetrical grid (Bento box style).
-* **Card Data:** Project Title, brief description, tech stack tags (pills), and a link to the live site/GitHub repository.
-* **Interaction:** Hovering over a card slightly scales it up and applies a subtle border glow.
+* **Layout:** Asymmetrical responsive grid (1-column on mobile, 2/3-column on desktop).
+* **Card Data:** Project Title, architecture description, tech stack tags, and direct repository links (`Obsidian`, `WMS`, `Shorts-Generator`).
+* **Interaction:** Hover glow effects and card scale transformations on fine-pointer devices.
 
 **2.4 Skills & Tools**
-* **Layout:** Categorized grid (e.g., "Languages," "Frameworks," "DevOps," "Distros").
-* **Content:** Simple, clear lists or badges displaying proficiencies. 
+* **Layout:** Categorized grid ("Languages", "Frameworks", "Databases & Search", "DevOps & Tools").
+* **Content:** Tag pills displaying technical proficiencies.
 
 **2.5 Footer / Contact**
-* **Content:** "Let's Connect" call to action, email link, GitHub link, and LinkedIn link.
-* **Visual:** Minimalist layout maintaining the true black aesthetic.
+* **Content:** Centered "04." indicator, "Say Hello" CTA button, and interactive contact cards for Email (`nitinskatte@gmail.com`), LinkedIn (`nitinbs`), and GitHub (`nitinbs24`).
+* **Kinetic Typography:** Responsive, viewport-clamped strikethrough layout ("Design Code" / "Deploy") leading to highlighted "INNOVATE".
+* **Visual:** Minimalist layout maintaining the cyber-minimalist true black aesthetic.
 
 ## 3. Non-Functional Requirements
 
 **3.1 Device Responsiveness & Input Handling**
-* **Mobile-First:** All UI components must be designed for 375px widths first and scaled up via CSS Grid/Flexbox breakpoints.
-* **Conditional Animation:** Device input capabilities must dictate animations. Complex scrubbing and 3D card tilts are restricted to fine-pointer devices (mice/trackpads).
-* **Scroll Hijacking:** Strictly prohibited on mobile. The site must fall back to native iOS/Android touch scrolling. 
+* **Mobile-First:** All UI components designed for 375px widths first and scaled up via Tailwind CSS breakpoints. No horizontal overflow permitted.
+* **Conditional Animation:** Complex pointer effects restricted to fine-pointer devices; touch devices receive streamlined Framer Motion reveals.
+* **Scroll Management:** Native touch scrolling preserved on mobile; smooth inertia via Lenis on desktop without CSS snap hijacking.
 
 **3.2 Performance Metrics**
 * **Lighthouse Score:** Target 90+ across Performance, Accessibility, Best Practices, and SEO.
-* **Frame Rate:** 3D canvas and scroll animations must maintain 60 FPS on standard desktop hardware. 
-* **Asset Optimization:** Next.js `<Image>` component must be used for any static assets to ensure WebP formatting and lazy loading.
+* **Frame Rate:** 3D canvas and scroll animations maintain 60 FPS on standard desktop hardware.
+* **Favicon & Metadata:** Configured via App Router file-based metadata (`app/icon.png`) and comprehensive OpenGraph tags.
 
 ## 4. Technical Stack
-* **Framework:** Next.js (App Router)
+* **Framework:** Next.js 15 (App Router) & React 19
 * **Language:** TypeScript
-* **Styling:** Tailwind CSS
+* **Styling:** Tailwind CSS v4 (CSS-first `@theme` configuration)
 * **Animations:** Framer Motion
 * **3D Graphics:** Three.js, React Three Fiber (R3F), Drei
-* **Scroll Management:** `@studio-freight/react-lenis`
+* **Scroll Management:** Lenis (`lenis` / `@studio-freight/react-lenis`)
+* **Testing:** Vitest & React Testing Library (jsdom)
+* **Deployment Target:** Vercel (with `.npmrc` legacy peer deps support) & Static VPS Export (`output: export`)
 
 ## 5. Recommended Folder Structure
 For Next.js App Router (TypeScript), Antigravity should build out the following directory tree:

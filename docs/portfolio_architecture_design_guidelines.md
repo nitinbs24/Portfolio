@@ -6,23 +6,25 @@
 **Core Directive:** The site must feel cinematic and weighty on a desktop environment while degrading gracefully to a fast, native-feeling, touch-optimized experience on mobile.
 
 ## 2. Tech Stack Requirements
-*   **Framework:** React (Next.js App Router recommended).
-*   **Styling:** Tailwind CSS.
-*   **Animations:** Framer Motion.
-*   **Smooth Scrolling:** `@studio-freight/react-lenis` (Crucial for normalizing trackpad vs. arrow key behavior).
-*   **3D Elements:** `@react-three/fiber` and `@react-three/drei`.
+*   **Framework:** Next.js 15 (App Router) & React 19.
+*   **Styling:** Tailwind CSS v4 (CSS-first configuration via `@theme` in `globals.css`).
+*   **Animations:** Framer Motion (viewport reveals, floating dropdown popovers).
+*   **Smooth Scrolling:** Lenis (`lenis` / `@studio-freight/react-lenis`).
+*   **3D Elements:** Three.js with `@react-three/fiber` and `@react-three/drei`.
+*   **Testing:** Vitest & React Testing Library.
 
 ## 3. Typography & Color Palette
 **Colors:**
-*   **Background:** True Black (`#000000` or `bg-black`). Do not use dark blue or purple gradients.
+*   **Background:** True Black (`#000000` or `bg-black`).
 *   **Surface/Cards:** Dark Neutral (`#171717` to `#0a0a0a` or `bg-neutral-900`/`bg-neutral-950`).
 *   **Borders:** Ultra-thin translucent white (`border-white/10` or `border-white/5`).
-*   **Accent:** Terminal Green (`#00ff00`) used *sparingly* (e.g., terminal cursor, active status dots).
+*   **Accent:** Terminal Green (`#00ff00`) used *sparingly* (e.g., active status dots, cursor highlights).
 *   **Text:** Pure White (`text-white`) for headings, Muted Gray (`text-neutral-400`) for paragraphs.
 
-**Typography:**
-*   **Display Font (Headers):** `Clash Display Expanded`, `Monument Extended`, or a similar wide, heavyweight sans-serif. Used for the massive hero text and section titles.
-*   **Body/Tech Font:** `JetBrains Mono`, `Geist Mono`, or `Fira Code`. Used for all terminal windows, skill tags, typewriter effects, and small metadata.
+**Typography Strategy:**
+*   **Display Font (Headers Only):** `Monument Extended`. Restricted to primary hero name and major section titles (`text-4xl md:text-5xl lg:text-6xl uppercase tracking-tighter`).
+*   **Primary Sans (Subheadings & UI):** `Clash Display`. Used for project cards, body copy, and UI controls.
+*   **Monospace Font:** `JetBrains Mono`. Used for the macOS terminal, skill pills, typewriter effects, section index tags (`01.`, `02.`, etc.), and metadata.
 
 ## 4. Layout & Responsive Strategy (Mobile-First)
 All Tailwind classes must be written mobile-first. Scale up layout complexity using `md:` and `lg:` breakpoints.
@@ -30,11 +32,12 @@ All Tailwind classes must be written mobile-first. Scale up layout complexity us
 *   **Mobile (Default):** 
     *   1-column layouts (`grid-cols-1`).
     *   Native touch scrolling (no hijacking).
-    *   Simplified animations (fade-in only).
+    *   No horizontal overflow (`overflow-x: hidden` root container).
+    *   Compact popover menu centered under navigation pill with click-outside dismiss.
 *   **Desktop (`md:`, `lg:`):** 
     *   Bento Grid layouts (2 or 3 columns).
-    *   Hover states enabled.
-    *   Complex Framer Motion scroll reveals.
+    *   Interactive 3D particle background responding to mouse coordinates.
+    *   Subtle hover glows and card scale transitions.
 
 ## 5. Animation & Scroll Rules (CRITICAL)
 To avoid the "jumpy trackpad" issue and mobile frame drops, enforce these strict rules:
@@ -42,34 +45,41 @@ To avoid the "jumpy trackpad" issue and mobile frame drops, enforce these strict
 ### A. Lenis Smooth Scroll Configuration
 Wrap the application in Lenis to normalize scroll wheel and trackpad inertia.
 *   `lerp: 0.1` (Controls the "weight" of the scroll).
-*   `smoothTouch: false` (MANDATORY: Leaves native mobile touch scrolling entirely alone).
+*   `smoothTouch: false` (Leaves native mobile touch scrolling entirely alone).
 *   **No CSS Snapping:** Do NOT use `scroll-snap-type` anywhere in the CSS.
 
 ### B. Conditional Mobile Animations
-Do not run heavy DOM mutations or layout shifts on mobile. Create a custom hook or use CSS media queries to separate logic.
-*   **Desktop (`@media (hover: hover) and (pointer: fine)`):** Enable 3D card tilts, magnetic cursors, and parallax scroll effects.
-*   **Mobile (`@media (hover: none)`):** Strip complex interactions. Elements should simply `opacity: 0` to `opacity: 1` and `translateY(20px)` to `translateY(0)` as they enter the viewport (`whileInView` in Framer Motion).
+Do not run heavy DOM mutations or layout shifts on mobile.
+*   **Desktop (`@media (hover: hover) and (pointer: fine)`):** Enable 3D canvas interaction, card glow gradients, and hover transitions.
+*   **Mobile (`@media (hover: none)`):** Elements use lightweight Framer Motion reveals (`whileInView={{ opacity: 1, y: 0 }}`).
 
 ## 6. Component Specifications
 
+### The Navigation Bar
+*   **Pill Container:** Centered floating pill (`fixed top-6 left-1/2 -translate-x-1/2 z-50`) with blur backdrop and section intersection tracking.
+*   **Mobile Popover Dropdown:** Toggled via hamburger button (morphing into `X`). Rendered as a sleek, rounded dark dropdown with Framer Motion scale/fade animation, outside-click backdrop detection, and a direct Resume download link.
+
 ### The Hero Section
-*   **Background:** A fixed, full-screen `<Canvas>` using React Three Fiber. Implement Drei's `<Stars>` or `<Sparkles>` component with a slow rotation to create a drifting space/particle effect. Place this at `z-index: -1`.
-*   **Content:** Centered, massive Display font for the name. Below it, a typewriter effect cycling through roles (e.g., `> Software Engineer |`, `> DevOps |`) using the Monospace font.
+*   **Background:** Fixed `<Canvas>` running R3F with mouse-tracking particle drift (desktop only).
+*   **Content:** Display title with initials wrap protection (`whitespace-nowrap` on "B S") ensuring clean line breaking. Typewriter role rotator below.
 
 ### The About Section (Terminal Window)
-*   **Visuals:** Design a card to look like a macOS terminal.
-*   **Header:** Small top bar with three dots (red, yellow, green) on the left, and terminal title centered (`bash - user@portfolio: ~`).
-*   **Body:** Monospace text mimicking a CLI interface (e.g., `$ whoami`, returning the about text).
+*   **Visuals:** Card styled as a macOS terminal window with window controls and bash header.
+*   **Body:** Monospace text displaying `$ whoami`, Name, and engineering focus areas with active status checks.
 
 ### Projects & Skills (Bento Grid)
-*   **Layout:** CSS Grid. Mobile: `grid-cols-1 gap-4`. Desktop: `md:grid-cols-3 gap-6`.
-*   **Card Styling:** `bg-neutral-900 border border-white/10 rounded-2xl p-6`.
-*   **Hover Effects (Desktop Only):** Subtle scale-up (`hover:scale-[1.02]`) and a slight glow effect (using a radial gradient background that follows the mouse cursor, or a simple `hover:border-white/30`).
-*   **Tags:** Tech stack pills inside project cards must use the Monospace font with a slightly lighter background (e.g., `bg-neutral-800 text-xs px-2 py-1 rounded`).
+*   **Layout:** Responsive Bento Grid (`grid-cols-1` to `md:grid-cols-3`).
+*   **Links:** Live GitHub repository links for all active projects (`nitinbs24/Obsidian`, `nitinbs24/WMS`, `nitinbs24/Shorts-Generator`).
+*   **Tags:** Tech stack pills using monospace font.
 
-## 7. Quality Assurance Checklist for AI Agent
-When running the browser subagent to verify the build, ensure:
-1.  [ ] No horizontal scrolling occurs on a 375px viewport.
-2.  [ ] Touch scrolling on mobile feels native and responsive (not sluggish or delayed).
-3.  [ ] Trackpad scrolling on desktop is smooth and does not snap violently to sections.
-4.  [ ] The Three.js canvas resizes correctly without stretching when the browser window is resized.
+### Contact & Footer
+*   **Indicator & CTA:** Centered "04." indicator and centered "Say Hello" button.
+*   **Cards:** Interactive cards for Email, LinkedIn, and GitHub with hover glow effects.
+*   **Kinetic Strikethrough:** Responsive, viewport-clamped typography ("Design Code" / "Deploy" with line-through) flowing into "INNOVATE".
+
+## 7. Quality Assurance Checklist
+1.  [x] No horizontal scrolling occurs on a 375px viewport.
+2.  [x] Touch scrolling on mobile feels native and responsive.
+3.  [x] Trackpad scrolling on desktop is smooth via Lenis.
+4.  [x] Mobile popover dropdown closes on outside tap and navigation clicks.
+5.  [x] Vercel deployment builds cleanly with `.npmrc` peer dependencies configuration.

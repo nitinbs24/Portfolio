@@ -15,8 +15,8 @@ export function Hero() {
 
     if (!isDeleting && displayText === currentRole) {
       typingSpeed = 2000; // Pause at end of word
-      setTimeout(() => setIsDeleting(true), typingSpeed);
-      return;
+      const pause = setTimeout(() => setIsDeleting(true), typingSpeed);
+      return () => clearTimeout(pause);
     }
 
     if (isDeleting && displayText === "") {

@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
+    "start": "npx serve@14 out",
+    "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest"
   },
@@ -25,6 +25,7 @@
     "three": "^0.177.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
     "@tailwindcss/postcss": "^4.3.3",
     "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^6.6.3",
@@ -34,6 +35,8 @@
     "@types/react-dom": "^19.1.5",
     "@types/three": "^0.177.0",
     "@vitejs/plugin-react": "^4.5.1",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^15.5.27",
     "jsdom": "^26.1.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.3.3",

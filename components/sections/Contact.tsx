@@ -52,7 +52,7 @@ export function Contact() {
           className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-8 w-full uppercase text-center"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          <span className="text-white">Let's </span>
+          <span className="text-white">Let&apos;s </span>
           <span className="text-neutral-500">Connect</span>
         </motion.h2>
 

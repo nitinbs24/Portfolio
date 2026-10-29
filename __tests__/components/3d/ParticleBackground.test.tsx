@@ -4,7 +4,7 @@ import ParticleBackground from "@/components/3d/ParticleBackground";
 
 // Mock R3F and Drei
 vi.mock("@react-three/fiber", () => ({
-  Canvas: ({ children }: any) => <div data-testid="r3f-canvas">{children}</div>,
+  Canvas: ({ children }: { children: React.ReactNode }) => <div data-testid="r3f-canvas">{children}</div>,
   useFrame: () => {},
 }));
 

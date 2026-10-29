@@ -46,15 +46,15 @@ export function Navbar() {
 
   return (
     <>
+      {/* Invisible Overlay to close mobile menu (outside the transformed header so it spans the viewport) */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 z-40 md:hidden"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
       <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
-        {/* Invisible Overlay to close mobile menu */}
-        {isMobileMenuOpen && (
-          <div 
-            className="fixed inset-0 w-[100vw] h-[100vh] -left-[50vw] -top-6 -z-10 md:hidden" 
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
-        )}
-        
         <nav className="relative z-10 flex items-center gap-2 p-1.5 md:p-2 rounded-full border border-white/10 bg-[#151515]/70 backdrop-blur-md shadow-2xl">
           
           {/* Logo */}

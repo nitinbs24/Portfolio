@@ -42,13 +42,13 @@ export function About() {
             className="space-y-6 text-neutral-400 text-base md:text-lg leading-relaxed"
           >
             <p>
-              I'm a passionate technologist at the intersection of <strong className="text-neutral-200 font-semibold">Backend Engineering, Distributed Systems</strong>, and <strong className="text-neutral-200 font-semibold">Cloud Infrastructure</strong>.
+              I&apos;m a passionate technologist at the intersection of <strong className="text-neutral-200 font-semibold">Backend Engineering, Distributed Systems</strong>, and <strong className="text-neutral-200 font-semibold">Cloud Infrastructure</strong>.
             </p>
             <p>
               I build robust systems that handle complex data pipelines — from developing search engines for object storage with Kubernetes and Kafka to building a 3D warehouse visualization and vacancy-optimization add-on for Odoo.
             </p>
             <p>
-              When I'm not writing APIs, I'm exploring system architecture, automating workflows, or contributing to open source. I believe backend infrastructure should be scalable, resilient, and elegant.
+              When I&apos;m not writing APIs, I&apos;m exploring system architecture, automating workflows, or contributing to open source. I believe backend infrastructure should be scalable, resilient, and elegant.
             </p>
           </motion.div>
 

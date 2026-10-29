@@ -29,7 +29,7 @@ The application will consist of a single-page layout (SPA) divided into the foll
 
 **2.3 Featured Projects (Bento Grid)**
 * **Layout:** Asymmetrical responsive grid (1-column on mobile, 2/3-column on desktop).
-* **Card Data:** Project Title, architecture description, tech stack tags, and direct repository links (`Obsidian`, `WMS`, `Shorts-Generator`).
+* **Card Data:** Project Title, architecture description, tech stack tags, and direct repository links (`Obsidian`, `warehouse_3D`, `log-parser`, `Shorts-Generator`).
 * **Interaction:** Hover glow effects and card scale transformations on fine-pointer devices.
 
 **2.4 Skills & Tools**

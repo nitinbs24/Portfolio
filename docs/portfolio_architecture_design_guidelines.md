@@ -69,7 +69,7 @@ Do not run heavy DOM mutations or layout shifts on mobile.
 
 ### Projects & Skills (Bento Grid)
 *   **Layout:** Responsive Bento Grid (`grid-cols-1` to `md:grid-cols-3`).
-*   **Links:** Live GitHub repository links for all active projects (`nitinbs24/Obsidian`, `nitinbs24/WMS`, `nitinbs24/Shorts-Generator`).
+*   **Links:** Live GitHub repository links for all active projects (`nitinbs24/Obsidian`, `nitinbs24/warehouse_3D`, `nitinbs24/log-parser`, `nitinbs24/Shorts-Generator`).
 *   **Tags:** Tech stack pills using monospace font.
 
 ### Contact & Footer

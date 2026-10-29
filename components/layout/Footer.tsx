@@ -28,7 +28,7 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col md:block items-center md:text-8xl font-bold tracking-tighter text-neutral-600 uppercase select-none text-center"
+          className="flex flex-col md:block items-center md:text-[clamp(2.5rem,7vw,6rem)] font-bold tracking-tighter text-neutral-600 uppercase select-none text-center"
           style={{ fontFamily: "var(--font-display)" }}
         >
           {/* Mobile: Design Code */}
@@ -55,7 +55,7 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-6xl md:text-[9rem] leading-none font-bold tracking-tighter text-neutral-200 mt-2 md:mt-4 mb-20 uppercase"
+          className="text-6xl md:text-[clamp(3.75rem,15vw,9rem)] leading-none font-bold tracking-tighter text-neutral-200 mt-2 md:mt-4 mb-20 uppercase"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Innovate

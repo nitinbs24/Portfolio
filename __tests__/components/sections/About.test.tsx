@@ -1,7 +1,6 @@
 import { render } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import { About } from "@/components/sections/About";
-import { personalInfo } from "@/lib/constants";
 
 describe("About", () => {
   it("renders the terminal window headers", () => {

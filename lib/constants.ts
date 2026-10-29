@@ -48,13 +48,22 @@ export const projects: Project[] = [
   },
   {
     id: "3d-warehouse",
-    title: "3D Warehouse Slotting Engine",
+    title: "3D Warehouse Visualization & Vacancy Optimization",
     description:
-      "Full-stack slotting engine (FastAPI + async Postgres + Redis/arq) that turns Odoo-shaped inventory data into optimized rack-slot assignments with a React Three Fiber 3D digital twin.",
-    tags: ["FastAPI", "PostgreSQL", "Redis", "React Three Fiber"],
+      "Odoo 19 add-on that generates Inventory storage locations from a rack layout and renders a live 3D view of slot occupancy (OWL + Three.js) over Odoo's message bus, with pluggable bin-packing, putaway and picking-route strategies.",
+    tags: ["Odoo 19", "OWL", "Three.js", "Python", "PostgreSQL"],
     href: "#",
-    repo: "https://github.com/nitinbs24/WMS",
+    repo: "https://github.com/nitinbs24/warehouse_3D",
     featured: true,
+  },
+  {
+    id: "log-parser",
+    title: "LLM-Based Log Parser",
+    description:
+      "Fine-tuning Qwen3-4B with LoRA (Hugging Face PEFT) on a single T4 GPU to turn unstructured system logs into structured event templates and parameters, evaluated on held-out log sources instead of brittle regex rules.",
+    tags: ["Hugging Face Transformers", "LoRA / PEFT", "Python", "Qwen3-4B"],
+    href: "#",
+    repo: "https://github.com/nitinbs24/log-parser",
   },
   {
     id: "ai-shorts",
@@ -76,7 +85,7 @@ export const skills: SkillCategory[] = [
   },
   {
     label: "FRAMEWORKS",
-    items: ["LangChain", "FastAPI", "React Three Fiber", "Streamlit", "gRPC"],
+    items: ["LangChain", "Hugging Face Transformers", "LoRA fine-tuning (PEFT)", "Odoo", "OWL", "Three.js", "Streamlit", "gRPC"],
   },
   {
     label: "DATABASES & SEARCH",

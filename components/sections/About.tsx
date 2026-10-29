@@ -92,7 +92,7 @@ export function About() {
                   <li className="flex items-start gap-2"><span className="text-neutral-500">-</span> Backend Engineering</li>
                   <li className="flex items-start gap-2"><span className="text-neutral-500">-</span> Distributed Pipelines</li>
                   <li className="flex items-start gap-2"><span className="text-neutral-500">-</span> System Architecture</li>
-                  <li className="flex items-start gap-2"><span className="text-neutral-500">-</span> Production Deployments</li>
+                  <li className="flex items-start gap-2"><span className="text-neutral-500">-</span> Applied AI / LLMs</li>
                   <li className="flex items-start gap-2"><span className="text-neutral-500">-</span> Open Source Contributor</li>
                 </ul>
 
